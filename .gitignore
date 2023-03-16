@@ -1,0 +1,15 @@
+*.sh
+*.dll
+*.so 
+*.dylib
+*.test
+*.env
+tmp/
+.vscode/
+*.new
+*.old
+*.out
+vendor/
+*.editorconfig
+*.sum
+*.db 
