@@ -14,8 +14,19 @@ var DB *gorm.DB
 // Migrate model
 func InitDB() {
 	DB = db.GetConn()
-	err :=  DB.AutoMigrate(&User{})
-	if err != nil {
+	if err := DB.AutoMigrate(&User{}); err != nil {
 		panic(err)
 	}
+	if err := DB.AutoMigrate(&Product{}); err != nil {
+		panic(err)
+	}
+	if err := DB.AutoMigrate(&Facture{}); err != nil {
+		panic(err)
+	}
+	if err := DB.AutoMigrate(&FactureDetail{}); err != nil {
+		panic(err)
+	}
+	
+	
+	
 }
