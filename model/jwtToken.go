@@ -6,7 +6,7 @@ import (
 
 // JWTClient struct
 type JWTClient struct {
-	User  User   `json:"user"`
+	Name string   `json:"username"`
 	Token string `json:"token"`
 }
 

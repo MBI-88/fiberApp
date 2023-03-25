@@ -19,6 +19,8 @@ func main() {
 
 	apiV1 := app.Group("/apiV1")
 	config.Use("/user",apiV1,controller.NewUserController()) // apiV1/user/
+	config.Use("/product",apiV1,controller.NewProductController()) // apiV1/product/
+	config.Use("/facture",apiV1,controller.NewFactureController()) // apiV1/facture/ 
 	app.Listen(":8000")
 
 	

@@ -11,7 +11,7 @@ import (
 )
 
 
-var keypassword = []byte("fiber_App_carrio")
+var keypassword = []byte("use123#!na87)(12|°)")
 
 // UserController struct
 type UserController struct{}
@@ -57,14 +57,10 @@ func (u *UserController) HandlerLogin(c *fiber.Ctx) error {
 		return c.Status(http.StatusBadRequest).JSON(model.Errors{
 			Message: err.Error()})
 	}
-	ok, err := user.Login()
+	err := user.Login()
 	if err != nil {
 		return c.Status(http.StatusBadRequest).JSON(model.Errors{
 			Message: err.Error()})
-	}
-	if !ok {
-		return c.Status(http.StatusBadRequest).JSON(model.Errors{
-			Message: "Bad user or password"})
 	}
 	tokenString,err := GenerateToken(user)
 	if err != nil {
@@ -73,7 +69,7 @@ func (u *UserController) HandlerLogin(c *fiber.Ctx) error {
 	}
 
 	response := model.JWTClient{
-		User: user,
+		Name: user.Name,
 		Token: tokenString,
 	}
 	return c.Status(http.StatusAccepted).JSON(response)
