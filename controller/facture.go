@@ -12,9 +12,9 @@ type FactureController struct{}
 
 // ConfigPath method router
 func (f *FactureController) ConfigPath(app *fiber.App) *fiber.App {
-	app.Get("/",f.HandleSaveFacture)
+	app.Get("/",f.HandleGetFactures)
 	app.Post("/",f.HandleSaveFacture)
-	app.Get("/:id",f.HandleSaveFacture)
+	app.Get("/:id",f.HandleGetFactureID)
 	app.Get("/user/:id",f.HandleFactureUser)
 	return app
 }
